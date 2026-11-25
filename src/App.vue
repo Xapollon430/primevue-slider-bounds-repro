@@ -14,7 +14,7 @@ function reset() { max.value = 100; value.value = 85; committed.value = null; }
   <main>
     <h1>Slider drag-end bounds reproduction</h1>
     <p>Press and hold the thumb for two seconds. The maximum drops from 100 to 60. Release without moving.</p>
-    <div @mousedown.capture="start" @touchstart.capture="start">
+    <div @mousedown.capture="start" @touchstart.capture="start" @click.capture.stop>
       <Slider v-model="value" :max="max" @slideend="committed = $event.value" />
     </div>
     <p>Maximum: {{ max }} | Model: {{ value }} | Slide end: {{ committed ?? 'not released' }}</p>
